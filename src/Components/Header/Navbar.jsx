@@ -82,18 +82,23 @@ const NavBar = () => {
                     </label>
 
         {/* User Section */}
-        <div className="relative group z-50">
-          {user?.email ? (
-            <div>
-              <img className="w-10 h-10 rounded-full cursor-pointer"
-                src={user?.photoURL} alt={user?.displayName} />
-              <div className="absolute flex flex-col items-end right-0 top-12 bg-white p-2 rounded-lg shadow-lg gap-1 opacity-0 group-hover:opacity-100 transition">
-                <span className="text-sm font-medium">{user.displayName}</span>
-                <button onClick={logOut} className="btn btn-sm bg-red-600 text-white">
-                  Log Out
-                </button>
-              </div>
-            </div>
+        <div className='relative group z-50'>
+                        {user && user?.email ? (
+                            <div>
+                                <img className="w-10 h-10 rounded-full cursor-pointer"
+                                    src={user?.photoURL}
+                                    alt={user?.displayName} />
+
+                                {/* hover */}
+                                <div className='absolute flex flex-col items-center right-0 top-12 gap-2 opacity-0 group-hover:opacity-100 z-50'>
+                                    <button className='bg-blue-500 text-white px-2 py-1 rounded'>
+                                        {user.displayName}
+                                    </button>
+                                    <button onClick={logOut}
+                                        className="bg-green-500 text-red-600 px-2 py-1 rounded">
+                                        LogOut</button>
+                                </div>
+                            </div>
           ) : (
             <div className="flex flex-col sm:flex-row gap-2">
               <Link to="/login">
