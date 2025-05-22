@@ -22,9 +22,15 @@ Smooth navigation between pages using React Router.
 Built with DaisyUI and TailwindCSS for a visually appealing, mobile-friendly design. And also use some npm package like react toastify, Lottie React and React Tooltip.
 
 
-### 5. Database use:
+### - **Database use:**
+use MongoDB in backend for securing database.
 
 
+### 6. Technology use:
+- **Frontend:** React.js, React Router, Tailwind CSS and DaisyUI.
+- **Backend:** Node.js, Express.js, MongoDB for data storage.
+- **Authentication:** Firebase authentication for secure user login and registration.
+- **Hosting:** Netlify (Client-side) and Vercel (Server-side).
 
 
 
