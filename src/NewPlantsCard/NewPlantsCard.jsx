@@ -6,7 +6,7 @@ const NewPlantsCard = ({plant}) => {
     const {_id,name,description,healthStatus,image} = plant;
     return (
         <div>
-            <div className="card w-full max-w-md lg:max-w-lg mx-auto bg-base-100 shadow-sm rounded-xl overflow-hidden">
+            <div className="card h-full w-full max-w-md lg:max-w-lg mx-auto bg-base-100 shadow-sm rounded-xl overflow-hidden">
                 <figure>
                     <img
                         src={image}
