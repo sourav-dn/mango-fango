@@ -3,44 +3,60 @@ import { Link, NavLink } from 'react-router';
 import { Authcontext } from '../../Provider/AuthProvider';
 
 const NavBar = () => {
+  const { user, logOut } = useContext(Authcontext);
 
-    const { user, logOut } = useContext(Authcontext);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+  const handleToggle = (e) => {
+    setTheme(e.target.checked ? "dark" : "light");
+  };
 
-    const handleToggle = (e) => {
-        if (e.target.checked) {
-            setTheme("dark");
-        }
-        else {
-            setTheme("light")
-        }
-    }
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.querySelector("html").setAttribute("data-theme", theme);
+  }, [theme]);
 
-    useEffect(() => {
-        localStorage.setItem("theme", theme)
-        const localTheme = localStorage.getItem("theme");
-        document.querySelector("html").setAttribute("data-theme", localTheme)
-    }, [theme])
+  const navLinks = (
+    <>
+      <li><NavLink to="/">Home</NavLink></li>
+      <li><NavLink to="/allplants">All Plants</NavLink></li>
+      <li><NavLink to="/addplant">Add Plant</NavLink></li>
+      <li><NavLink to="/myplants">My Plants</NavLink></li>
+    </>
+  );
 
-    return (
-        <div>
-            <div className="navbar bg-base-100 w-11/12 mx-auto">
-                <div className="navbar-start">
-                    <a className="text-xl font-bold"><span className='text-green-600'>Mango</span><span className='text-yellow-500'>Fango</span></a>
-                    <img className='size-10' src="/public/icons8-mango-48.png" alt="" />
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/allplants'>All Plants</NavLink></li>
-                        <li><NavLink to='/addplant'>Add Plant</NavLink></li>
-                        <li><NavLink to='/myplants'>My Plants</NavLink></li>
-                    </ul>
-                </div>
-                <div className="navbar-end">
+  return (
+    <div className="navbar bg-base-100 px-4 md:px-10 shadow-md">
+      <div className="navbar-start">
+        <div className="dropdown lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </label>
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[99] p-2 shadow bg-base-100 rounded-box w-52">
+            {navLinks}
+          </ul>
+        </div>
+        <Link className="text-xl font-bold flex items-center gap-2">
+         <p><span className="text-green-600">Mango</span><span className="text-yellow-500">Fango</span></p> 
+          <img className="w-8 h-8" src="/icons8-mango-48.png" alt="logo" />
+        </Link>
+      </div>
 
-                    <label className="swap swap-rotate">
+      {/* Center nav links for large screens */}
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          {navLinks}
+        </ul>
+      </div>
+
+      {/* End Section: Theme toggle + Profile/Login */}
+      <div className="navbar-end flex items-center gap-3">
+        {/* Theme Toggle */}
+        <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox"
                             onChange={handleToggle}
@@ -65,41 +81,33 @@ const NavBar = () => {
                         </svg>
                     </label>
 
-                    {/* user profile */}
-                    <div className='relative group z-50'>
-                        {user && user?.email ? (
-                            <div>
-                                <img className="w-10 h-10 rounded-full cursor-pointer"
-                                    src={user?.photoURL}
-                                    alt={user?.displayName} />
-
-                                {/* hover */}
-                                <div className='absolute flex flex-col items-center right-0 top-12 gap-2 opacity-0 group-hover:opacity-100 z-50'>
-                                    <button className='bg-blue-500 text-white px-2 py-1 rounded'>
-                                        {user.displayName}
-                                    </button>
-                                    <button onClick={logOut}
-                                        className="bg-green-600 text-red-600 px-2 py-1 rounded">
-                                        LogOut</button>
-                                </div>
-                            </div>
-                        ) : (
-                            
-                            <div className="flex gap-2">
-                                <Link to="/login">
-                                    <button className="btn bg-[#596def] text-white">Login</button>
-                                </Link>
-                                <Link to="/register">
-                                    <button className="btn bg-[#596def] text-white">Register</button>
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-
-                </div>
+        {/* User Section */}
+        <div className="relative group z-50">
+          {user?.email ? (
+            <div>
+              <img className="w-10 h-10 rounded-full cursor-pointer"
+                src={user?.photoURL} alt={user?.displayName} />
+              <div className="absolute flex flex-col items-end right-0 top-12 bg-white p-2 rounded-lg shadow-lg gap-1 opacity-0 group-hover:opacity-100 transition">
+                <span className="text-sm font-medium">{user.displayName}</span>
+                <button onClick={logOut} className="btn btn-sm bg-red-600 text-white">
+                  Log Out
+                </button>
+              </div>
             </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link to="/login">
+                <button className="btn btn-sm bg-[#596def] text-white">Login</button>
+              </Link>
+              <Link to="/register">
+                <button className="btn btn-sm bg-[#596def] text-white">Register</button>
+              </Link>
+            </div>
+          )}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default NavBar;
