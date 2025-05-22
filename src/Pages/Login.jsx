@@ -61,12 +61,12 @@ const Login = () => {
         <div className='min-h-screen flex justify-center items-center bg-indigo-50 px-4 flex-col lg:flex-row-reverse'>
 
                   {/* ✅ Lottie Animation */}
-                <div className="text-center lg:text-left">
-                    <p className="py-6">
+                <div className="text-center lg:text-left ml-4">
+                    <div className="py-6">
                     <div className="text-center lg:text-left w-80">
                         <Lottie animationData={loginLottieData} />
                     </div>
-                    </p>
+                    </div>
                 </div>
 
             <div className="card bg-base-100 w-full max-w-sm md:max-w-md lg:max-w-lg p-6 md:p-10  shadow-2xl">
