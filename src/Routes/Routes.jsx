@@ -14,11 +14,13 @@ import PrivateRoute from "./PrivateRoute";
 import Footer from "../Components/Footer/Footer";
 import PlantDetails from "../Components/PlantDetails/PlantDetails";
 import UpdatePlant from "../Components/UpdatePlant/UpdatePlant";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
         {
             index: true,
