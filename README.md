@@ -6,27 +6,27 @@
 
 # **Key Features**
 
-### 1. User-Friendly Interface
+- **User-Friendly Interface:**
 Seamless navigation with a responsive design for all devices (mobile, tablet, and desktop).
 
 
-### 2. Authentication
+- **Authentication:**
 **Email and password-based user authentication.  
 **Google login integration for quick access.  
 **Secure private routes to ensure only authenticated users can access restricted content.
 
-### 3. Dynamic Routing: 
+- **Dynamic Routing:** 
 Smooth navigation between pages using React Router.
 
-### 4. Responsive UI: 
+- **Responsive UI:** 
 Built with DaisyUI and TailwindCSS for a visually appealing, mobile-friendly design. And also use some npm package like react toastify, Lottie React and React Tooltip.
 
 
-### - **Database use:**
+- **Database use:**
 use MongoDB in backend for securing database.
 
 
-### 6. Technology use:
+###  Technology use:
 - **Frontend:** React.js, React Router, Tailwind CSS and DaisyUI.
 - **Backend:** Node.js, Express.js, MongoDB for data storage.
 - **Authentication:** Firebase authentication for secure user login and registration.
