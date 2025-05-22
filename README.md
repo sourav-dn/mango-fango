@@ -1,3 +1,41 @@
+# Website Name: MangoFango 
+
+# Live URL :
+
+
+
+# **Key Features**
+
+### 1. User-Friendly Interface
+Seamless navigation with a responsive design for all devices (mobile, tablet, and desktop).
+
+
+### 2. Authentication
+**Email and password-based user authentication.  
+**Google login integration for quick access.  
+**Secure private routes to ensure only authenticated users can access restricted content.
+
+### 3. Dynamic Routing: 
+Smooth navigation between pages using React Router.
+
+### 4. Responsive UI: 
+Built with DaisyUI and TailwindCSS for a visually appealing, mobile-friendly design. And also use some npm package like react toastify, Lottie React and React Tooltip.
+
+
+### 5. Database use:
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
