@@ -65,7 +65,7 @@ const AllPlants = () => {
                                 <td>{plant.wateringFrequency}</td>
                                 <td>
                                     <Link to={`/plant/${plant._id}`}>
-                                        <button className="btn btn-sm bg-green-600 text-white">
+                                        <button className="btn btn-sm sm:btn-md bg-green-600 text-white w-full sm:w-auto">
                                             View Details
                                         </button>
                                     </Link>
