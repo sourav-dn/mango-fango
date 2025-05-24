@@ -36,7 +36,7 @@ const AddPlant = () => {
         .then(res => res.json())
         .then(data => {
         if (data.insertedId) {
-        toast.success("✅ Plant added successfully!");
+        toast.success("Plant added successfully!");
         form.reset();
         navigate("/allplants");
         }
@@ -48,10 +48,6 @@ const AddPlant = () => {
         });
 };
     
-
-    
-
-
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white shadow-md border-green-600 rounded-lg mt-5 mb-10">
             <h2 className="text-2xl font-bold mb-6 text-center">Add New Plant</h2>
