@@ -59,8 +59,7 @@ const Login = () => {
 
     return (
         <div className='min-h-screen flex justify-center items-center px-4 flex-col lg:flex-row-reverse'>
-
-                  {/* ✅ Lottie Animation */}
+                  {/* Lottie Animation */}
                 <div className="text-center lg:text-left ml-4">
                     <div className="py-6">
                     <div className="text-center lg:text-left w-80">
@@ -68,7 +67,6 @@ const Login = () => {
                     </div>
                     </div>
                 </div>
-
             <div className="card bg-base-100 w-full max-w-sm md:max-w-md lg:max-w-lg p-6 md:p-10  shadow-2xl">
                 <h2 className='text-2xl md:text-3xl font-bold text-center'>Login Your Account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
