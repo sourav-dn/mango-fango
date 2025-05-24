@@ -199,7 +199,7 @@ const Register = () => {
                     
                     <div className="form-control mt-6">
                         <button 
-                            className="btn btn-primary w-full"
+                            className="btn bg-green-600 text-red-600 w-full"
                             disabled={isLoading}
                         >
                             {isLoading ? (<span className="loading loading-spinner"></span>) : 'Register'}
