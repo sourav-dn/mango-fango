@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import LoadingPage from "./LoadingPage";
 
 
 const AllPlants = () => {
     const [plants, setPlants] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('https://mango-server-black.vercel.app/allplants')
             .then(res => res.json())
-            .then(data => setPlants(data));
+            .then(data => {
+                setPlants(data);
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
     }, []);
 
         
@@ -17,6 +23,10 @@ const AllPlants = () => {
             );
             setPlants(sorted);
         };
+
+        if (loading) {
+        return <LoadingPage />;
+    }
 
     return (
         <div className="container mx-auto px-4 py-6">

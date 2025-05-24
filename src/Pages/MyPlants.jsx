@@ -2,17 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { Link } from "react-router";
+import LoadingPage from "./LoadingPage";
 
 
 const MyPlants = () => {
 
     const { user } = useContext(Authcontext);
     const [myPlants, setMyPlants] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://mango-server-black.vercel.app/myplants?email=${user?.email}`)
             .then(res => res.json())
-            .then(data => setMyPlants(data));
+            .then(data => {
+                setMyPlants(data);
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
     }, [user]);
 
     const handleDelete = (id) => {
@@ -30,6 +36,10 @@ const MyPlants = () => {
                 }
             });
     };
+
+    if (loading) {
+        return <LoadingPage />;
+    }
 
     return (
         <div className="overflow-x-auto mt-5 w-11/12 mx-auto mb-10 min-h-screen">

@@ -1,16 +1,29 @@
 import { useEffect, useState } from "react";
 import NewPlantsCard from "../../NewPlantsCard/NewPlantsCard";
+import LoadingPage from "../../Pages/LoadingPage";
 
 const NewPlants = () => {
     const [plants, setPlants] = useState([]);
-    
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-    fetch("https://mango-server-black.vercel.app/newplants")
-      .then((res) => res.json())
-      .then((data) => setPlants(data))
-      .catch((err) => console.error("Fetch Error:", err));
-        
-  }, []);
+        fetch("https://mango-server-black.vercel.app/newplants")
+            .then((res) => res.json())
+            .then((data) => {
+                setPlants(data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error("Fetch Error:", err);
+                setLoading(false);
+            });
+
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
+
     return (
         <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8">
             <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mt-5 mb-5'>New Plants</h1>
