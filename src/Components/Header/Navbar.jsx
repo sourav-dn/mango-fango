@@ -18,10 +18,10 @@ const NavBar = () => {
 
     const navLinks = (
         <>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/allplants">All Plants</NavLink></li>
-            <li><NavLink to="/addplant">Add Plant</NavLink></li>
-            <li><NavLink to="/myplants">My Plants</NavLink></li>
+            <li><NavLink to="/" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Home</NavLink></li>
+            <li><NavLink to="/allplants"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Plants</NavLink></li>
+            <li><NavLink to="/addplant"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Add Plant</NavLink></li>
+            <li><NavLink to="/myplants"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>My Plants</NavLink></li>
         </>
     );
 
@@ -101,10 +101,10 @@ const NavBar = () => {
                 ) : (
                     <div className="flex flex-col sm:flex-row gap-2">
                         <Link to="/login">
-                            <button className="btn btn-sm bg-[#596def] text-white">Login</button>
+                            <button className="btn btn-sm bg-green-600 text-red-600">Login</button>
                         </Link>
                         <Link to="/register">
-                            <button className="btn btn-sm bg-[#596def] text-white">Register</button>
+                            <button className="btn btn-sm bg-green-600 text-red-600">Register</button>
                         </Link>
                     </div>
                 )}
