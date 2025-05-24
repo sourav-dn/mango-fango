@@ -38,10 +38,10 @@ const UpdatePlant = () => {
         })
             .then(res => res.json())
             .then(() => {
-                toast.success("✅ Plant updated successfully!");
+                toast.success("Plant updated successfully!");
                 navigate("/myplants");
             })
-            .catch(() => toast.error("❌ Update failed"));
+            .catch(() => toast.error("Update failed"));
     };
 
     if (!plant) return <p>Loading...</p>;
