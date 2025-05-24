@@ -11,10 +11,10 @@ const PlantDetails = () => {
         fetch(`http://localhost:3000/plant/${id}`)
             .then((res) => res.json())
             .then((data) => setPlant(data))
-            .catch((err) => console.error("❌ Error:", err));
+            .catch((err) => console.error("Error:", err));
     }, [id]);
 
-    if (!plant) return <div className="text-center mt-10">Loading...</div>;
+    
     return (
         <div className="max-w-4xl mx-auto p-6 mt-10 mb-10 bg-white rounded-lg shadow-md">
             <h2 className="text-3xl font-bold mb-4 text-green-700">{plant.name}</h2>
