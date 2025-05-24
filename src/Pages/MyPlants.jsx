@@ -10,7 +10,7 @@ const MyPlants = () => {
     const [myPlants, setMyPlants] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/myplants?email=${user?.email}`)
+        fetch(`https://mango-server-black.vercel.app/myplants?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyPlants(data));
     }, [user]);
@@ -19,7 +19,7 @@ const MyPlants = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this plant?");
         if (!confirmDelete) return;
 
-        fetch(`http://localhost:3000/plant/${id}`, {
+        fetch(`https://mango-server-black.vercel.app/plant/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -10,7 +10,7 @@ const UpdatePlant = () => {
     const [plant, setPlant] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/plant/${id}`)
+        fetch(`https://mango-server-black.vercel.app/plant/${id}`)
             .then(res => res.json())
             .then(data => setPlant(data))
             .catch(err => console.error("Fetch error:", err));
@@ -31,7 +31,7 @@ const UpdatePlant = () => {
             healthStatus: form.healthStatus.value
         };
 
-        fetch(`http://localhost:3000/updateplant/${id}`, {
+        fetch(`https://mango-server-black.vercel.app/updateplant/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedPlant)

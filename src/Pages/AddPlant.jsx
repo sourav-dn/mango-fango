@@ -26,7 +26,7 @@ const AddPlant = () => {
             userName: user?.displayName
         };
 
-          fetch('http://localhost:3000/addplant', {
+          fetch('https://mango-server-black.vercel.app/addplant', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(plant)

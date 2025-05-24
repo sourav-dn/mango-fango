@@ -8,7 +8,7 @@ const PlantDetails = () => {
     const [plant, setPlant] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/plant/${id}`)
+        fetch(`https://mango-server-black.vercel.app/plant/${id}`)
             .then((res) => res.json())
             .then((data) => setPlant(data))
             .catch((err) => console.error("Error:", err));

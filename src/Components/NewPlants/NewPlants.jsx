@@ -5,7 +5,7 @@ const NewPlants = () => {
     const [plants, setPlants] = useState([]);
     
     useEffect(() => {
-    fetch("http://localhost:3000/newplants")
+    fetch("https://mango-server-black.vercel.app/newplants")
       .then((res) => res.json())
       .then((data) => setPlants(data))
       .catch((err) => console.error("Fetch Error:", err));

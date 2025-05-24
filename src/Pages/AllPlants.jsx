@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const AllPlants = () => {
     const [plants, setPlants] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3000/allplants')
+        fetch('https://mango-server-black.vercel.app/allplants')
             .then(res => res.json())
             .then(data => setPlants(data));
     }, []);
