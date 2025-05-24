@@ -1,7 +1,4 @@
-
-
 const PlantCareMistakes = () => {
-
     const mistakes = [
         {
             title: "Overwatering",
