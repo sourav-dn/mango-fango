@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { Authcontext } from "../Provider/AuthProvider";
-import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 
 const AddPlant = () => {
     const { user } = useContext(Authcontext);
-    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,28 +24,27 @@ const AddPlant = () => {
             userName: user?.displayName
         };
 
-          fetch('https://mango-server-black.vercel.app/addplant', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(plant)
-        })
 
 
-        .then(res => res.json())
-        .then(data => {
-        if (data.insertedId) {
-        toast.success("Plant added successfully!");
-        form.reset();
-        navigate("/allplants");
+        try {
+            const res = await fetch('https://mango-server-black.vercel.app/addplant', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(plant),
+            });
+
+            if (res.ok) {
+                toast.success('Plant added successfully!');
+                form.reset();
+            } else {
+                toast.error('Failed to add plant.');
+            }
+        } catch (err) {
+            console.log(err)
+            toast.error('Something went wrong.');
         }
-        })
-        
-        .catch(err => {
-        console.error(err);
-        toast.error("Failed to add plant");
-        });
-};
-    
+    };
+
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white shadow-md border-green-600 rounded-lg mt-5 mb-10">
             <h2 className="text-2xl font-bold mb-6 text-center">Add New Plant</h2>
