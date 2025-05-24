@@ -20,7 +20,7 @@ const AllPlants = () => {
 
     return (
         <div className="container mx-auto px-4 py-6">
-            <h1 className="text-3xl font-bold mb-4 text-center">🌱 All Plants</h1>
+            <h1 className="text-3xl font-bold mb-4 text-center"> All Plants</h1>
             <div className="flex gap-3 mb-5 justify-center">
                 <button onClick={handleSortByDate} className="btn btn-outline btn-info">
                     Sort by Next Watering Date
