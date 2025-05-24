@@ -4,17 +4,13 @@ import { Link } from "react-router";
 
 const AllPlants = () => {
     const [plants, setPlants] = useState([]);
-
-    
-
     useEffect(() => {
-        fetch('http://localhost:3000/allplants') // or your deployed backend
+        fetch('http://localhost:3000/allplants')
             .then(res => res.json())
             .then(data => setPlants(data));
     }, []);
 
-
-        //  Sort by date only
+        
         const handleSortByDate = () => {
             const sorted = [...plants].sort(
             (a, b) => new Date(a.nextWatering) - new Date(b.nextWatering)
@@ -22,21 +18,14 @@ const AllPlants = () => {
             setPlants(sorted);
         };
 
-
     return (
         <div className="container mx-auto px-4 py-6">
             <h1 className="text-3xl font-bold mb-4 text-center">🌱 All Plants</h1>
-
-
-             {/*  Sort Controls */}
             <div className="flex gap-3 mb-5 justify-center">
                 <button onClick={handleSortByDate} className="btn btn-outline btn-info">
                     Sort by Next Watering Date
                 </button>
             </div>
-
-
-
             <div className="overflow-x-auto">
                 <table className="table w-full border">
                     <thead>
