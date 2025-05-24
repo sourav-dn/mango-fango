@@ -94,7 +94,7 @@ const Login = () => {
                         </Link>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary w-full">Login</button>
+                        <button className="btn bg-green-600 text-red-600 w-full">Login</button>
                     </div>
                 </form>
                 <div className='pb-5 pl-5 w-full'>
