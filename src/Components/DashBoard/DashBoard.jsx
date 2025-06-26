@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router';
 
 const DashBoard = () => {
     return (
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-6 min-h-screen">
             {/* Dashboard Sidebar */}
             <div className="flex">
                 <div className="w-1/4 bg-gray-200 p-4 rounded-lg shadow-md">
