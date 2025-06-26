@@ -1,7 +1,7 @@
 # Website Name: MangoFango 
 
 # Live URL : 
-https://b11a10-mango-client-side-sourav-dn.netlify.app/
+https://mango-fango-a10.netlify.app/
 
 
 
