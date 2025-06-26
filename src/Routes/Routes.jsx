@@ -15,6 +15,11 @@ import Footer from "../Components/Footer/Footer";
 import PlantDetails from "../Components/PlantDetails/PlantDetails";
 import UpdatePlant from "../Components/UpdatePlant/UpdatePlant";
 import ErrorPage from "../Pages/ErrorPage";
+import AboutUs from "../Pages/AboutUs";
+import Contact from "../Pages/Contact";
+import DashBoard from "../Components/DashBoard/DashBoard";
+import OverView from "../Components/OverView/OverView";
+
 
 export const router = createBrowserRouter([
   {
@@ -30,14 +35,22 @@ export const router = createBrowserRouter([
           path: "/allplants",
           Component: AllPlants
         },
+        // {
+        //   path: "/addplant",
+        //   element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute>
+        // },
         {
-          path: "/addplant",
-          element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute>
+          path: "/about-us",
+          Component: AboutUs
         },
         {
-          path: "/myplants",
-          element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute>
+          path: "/contact",
+          Component: Contact
         },
+        // {
+        //   path: "/myplants",
+        //   element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute>
+        // },
         {
           path: "/login",
           Component: Login
@@ -56,11 +69,33 @@ export const router = createBrowserRouter([
         },
         {
           path: "/plant/:id",
-          element: <PrivateRoute><PlantDetails></PlantDetails></PrivateRoute>
+          element: <PlantDetails></PlantDetails>
         },
         {
           path: "/update/:id",
           element: <PrivateRoute><UpdatePlant></UpdatePlant></PrivateRoute>
+        },
+        {
+          path: "/dashboard",
+          element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+          children: [
+            {
+              path: "overview",
+              element: <OverView></OverView>
+            },
+            {
+              path: "allplants",
+              element: <PrivateRoute><AllPlants></AllPlants></PrivateRoute>
+            },
+            {
+              path: "addplant",
+              element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute>
+            },
+            {
+              path: "myplants",
+              element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute>
+            }
+          ]
         }
     ]
   },

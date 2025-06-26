@@ -20,13 +20,25 @@ const NavBar = () => {
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Home</NavLink></li>
             <li><NavLink to="/allplants"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Plants</NavLink></li>
-            <li><NavLink to="/addplant"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Add Plant</NavLink></li>
-            <li><NavLink to="/myplants"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>My Plants</NavLink></li>
+            <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>About Us</NavLink></li>
+            <li><NavLink to="/contact" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Contact</NavLink></li>
+            <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>DashBoard</NavLink></li>
+            {/* <li><NavLink to="/addplant"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Add Plant</NavLink></li>
+            <li><NavLink to="/myplants"  className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>My Plants</NavLink></li> */}
         </>
     );
 
+    // Links that appear only when the user is logged in
+    // const loggedInLinks = (
+    //     <>
+    {/* //         <li><NavLink to="/addplant" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Add Plant</NavLink></li>
+    //         <li><NavLink to="/myplants" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>My Plants</NavLink></li> */}
+            {/* <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>DashBoard</NavLink></li>
+        </>
+    ); */}
+
     return (
-        <div className="navbar bg-base-100 px-4 md:px-10">
+        <div className="navbar bg-base-100 px-4 md:px-10 sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown lg:hidden">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden px-2">
@@ -38,6 +50,8 @@ const NavBar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[99] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLinks}
+                        {/* Conditionally add logged-in links */}
+                        {/* {user?.email && loggedInLinks} */}
                     </ul>
                 </div>
                 <Link className="text-xl font-bold flex items-center gap-2">

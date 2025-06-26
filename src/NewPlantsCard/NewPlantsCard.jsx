@@ -18,7 +18,7 @@ const NewPlantsCard = ({plant}) => {
                     <p>Health: {healthStatus}</p>
                     <div className="card-actions justify-end">
                         <Link to={`/plant/${_id}`}>
-                            <button className="btn bg-green-600 text-red-800">View Details</button>
+                            <button className="btn bg-green-600 text-red-800">See more...</button>
                         </Link>
                     </div>
                 </div>

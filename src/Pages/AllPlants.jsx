@@ -32,47 +32,35 @@ const AllPlants = () => {
         <div className="container mx-auto px-4 py-6">
             <h1 className="text-3xl font-bold mb-4 text-center"> All Plants</h1>
             <div className="flex gap-3 mb-5 justify-center">
-                <button onClick={handleSortByDate} className="btn btn-outline btn-info">
+                <button onClick={handleSortByDate} className="btn bg-green-600 text-red-800">
                     Sort by Next Watering Date
                 </button>
             </div>
-            <div className="overflow-x-auto">
-                <table className="table w-full border">
-                    <thead>
-                        <tr className="bg-green-200 text-black">
-                            <th>Serial</th>
-                            <th>Image</th>
-                            <th>Plant Name</th>
-                            <th>Category</th>
-                            <th>Watering Frequency</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {plants.map((plant, index) => (
-                            <tr key={plant._id}>
-                                <td>{index + 1}</td>
-                                <td>
-                                    <img
-                                        src={plant.image}
-                                        alt={plant.name}
-                                        className="w-16 h-16 rounded object-cover"
-                                    />
-                                </td>
-                                <td>{plant.name}</td>
-                                <td>{plant.category}</td>
-                                <td>{plant.wateringFrequency}</td>
-                                <td>
-                                    <Link to={`/plant/${plant._id}`}>
-                                        <button className="btn btn-sm sm:btn-md bg-green-600 text-white w-full sm:w-auto">
-                                            View Details
-                                        </button>
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+            {/* Card View Section */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {plants.map((plant, index) => (
+                    <div key={index} className="card w-full bg-base-100 shadow-lg rounded-lg overflow-hidden">
+                        <figure>
+                            <img
+                                src={plant.image}
+                                alt={plant.name}
+                                className="w-full h-64 object-cover rounded-t-lg"
+                            />
+                        </figure>
+                        <div className="card-body p-4">
+                            <h2 className="card-title text-xl font-semibold">{plant.name}</h2>
+                            <p className="text-gray-500">Category: {plant.category}</p>
+                            <p className="text-gray-500">Watering Frequency: {plant.wateringFrequency}</p>
+                            <div className="card-actions mt-4">
+                                <Link to={`/plant/${plant._id}`}>
+                                    <button className="btn btn-sm sm:btn-md bg-green-600 text-red-800 w-full sm:w-auto">
+                                        View Details
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
